@@ -34,11 +34,11 @@ public class StageButton : MonoBehaviour
         LevelManager.Instance.LoadLevelScene(_levelConfig);
     }
 
-    private int GetScoreByLevelId(string id)
+    private int GetScoreByLevelId(int id)
     {
-        if (PlayerPrefs.HasKey(id))
+        if (PlayerPrefs.HasKey(id.ToString()))
         {
-            return PlayerPrefs.GetInt(id);
+            return PlayerPrefs.GetInt(id.ToString());
         }
 
         return 0;
@@ -46,12 +46,14 @@ public class StageButton : MonoBehaviour
 
     private bool IsEnabled()
     {
-        if (_levelConfig.PreviousId == -1)
+        int PreviousId = _levelConfig.Id - 1;
+
+        if (PreviousId == 0)
         {
             return true;
         }
 
-        return GetScoreByLevelId(_levelConfig.PreviousId.ToString()) > 0;
+        return GetScoreByLevelId(PreviousId) > 0;
     }
 
     public void SetLevelConfig(LevelConfig config)
@@ -61,7 +63,7 @@ public class StageButton : MonoBehaviour
             _levelConfig = config;
             StageNumberReference.text = _levelConfig.Id.ToString();
 
-            int score = GetScoreByLevelId(_levelConfig.Id.ToString());
+            int score = GetScoreByLevelId(_levelConfig.Id);
 
             if (score > 0)
             {

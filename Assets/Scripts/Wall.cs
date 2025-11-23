@@ -6,7 +6,6 @@ public class Wall : MonoBehaviour
 
     private AudioSource _wallAudioSource;
 
-    // Start is called before the first frame update
     void Awake()
     {
         _wallAnimator = GetComponent<Animator>();

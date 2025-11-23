@@ -7,8 +7,6 @@ public class LevelConfig : ScriptableObject
 {
     public int Id = 0;
 
-    public int PreviousId = -1;
-
     public float BaseHealth = 100f;
 
     public float BaseCoins = 10f;

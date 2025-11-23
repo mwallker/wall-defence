@@ -105,7 +105,7 @@ public class Gun : MonoBehaviour
     {
         while (true)
         {
-            target = FindObjectsOfType<Monster>()
+            target = FindObjectsByType<Monster>(FindObjectsSortMode.None)
                ?.Where(IsMonsterInRange)
                ?.OrderBy(monster => monster.transform.position.y)
                ?.FirstOrDefault();

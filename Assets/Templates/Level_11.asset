@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Level_11
   m_EditorClassIdentifier: 
   Id: 11
-  PreviousId: 10
   BaseHealth: 100
-  BaseCoins: 10
+  BaseCoins: 30
   MonsterSpawnRate: 5
   MaxGunTier: 9
   CompletionReward: 10
